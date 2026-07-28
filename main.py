@@ -1,7 +1,7 @@
 #  -- FUNÇÕES --
 def adicionar_contato (lista_contatos , nome, telefone, email):
-    contato = {"nome": nome, "telefone": telefone, "email": email, "favorito": False}
-    lista_contatos.append (contato)
+    contato = {"nome": nome, "telefone": telefone, "email": email, "favorito": False} #dicionario q fará parte da lista
+    lista_contatos.append (contato)   #lista de contatos
     
     print (f"O contato {nome} foi adicionado com sucesso!")
     return
