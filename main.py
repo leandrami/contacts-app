@@ -6,6 +6,14 @@ def adicionar_contato (lista_contatos , nome, telefone, email):
     print (f"O contato {nome} foi adicionado com sucesso!")
     return
 
+def listar_contatos (lista_contatos):
+    lista_contatos.sort(key=lambda contato: contato['nome'].lower()) #ordena a lista em ordem alfábética
+    print (f"\n Lista de Contatos: ")
+    for indice, contato in enumerate (lista_contatos, start=1):    # cada item recebe um indice relacionado
+        status = "★" if contato["favorito"] else " "
+        print(f"{indice}. - [{status}] {contato['nome']} - {contato['telefone']}")
+    
+    return
 
 
 
@@ -24,16 +32,14 @@ while True:
     
     escolha = input("Digite a opção desejada: ")
 
-
     if (escolha == "1") :
         nome = input ("Digite o nome do contato: ")
         telefone = input ("Digite o telefone: ")
         email = input ("Digite o e-mail: ")
+        adicionar_contato (lista_contatos , nome, telefone, email)    
         
-        adicionar_contato (lista_contatos , nome, telefone, email)
-        print (f"O contato {nome} foi adicionado com sucesso!")
-        
-        
+    elif (escolha == "2") :
+        listar_contatos(lista_contatos)
         
         
     elif (escolha == "7"):
