@@ -7,13 +7,30 @@ def adicionar_contato (lista_contatos , nome, telefone, email):
     return
 
 def listar_contatos (lista_contatos):
-    lista_contatos.sort(key=lambda contato: contato['nome'].lower()) #ordena a lista em ordem alfábética
+    lista_contatos.sort(key=lambda contato: contato['nome'].lower()) # ordena a lista em ordem alfábética
     print (f"\n Lista de Contatos: ")
     for indice, contato in enumerate (lista_contatos, start=1):    # cada item recebe um indice relacionado
         status = "★" if contato["favorito"] else " "
         print(f"{indice}. - [{status}] {contato['nome']} - {contato['telefone']}")
     
     return
+
+
+
+
+def renomear_contato (lista_contatos, indice_contato, novo_nome_contato):
+    indice_contato_ajustado = int(indice_contato) - 1
+    if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos): 
+        lista_contatos[indice_contato_ajustado]['nome'] = novo_nome_contato
+        print (f"O Contato {indice_contato} foi renomeado para o {novo_nome_contato} ")
+        
+    else :
+        print ("Número do contato inválido.")
+    return
+
+
+
+
 
 
 
@@ -40,6 +57,20 @@ while True:
         
     elif (escolha == "2") :
         listar_contatos(lista_contatos)
+        
+    elif (escolha == "3") :
+        listar_contatos(lista_contatos)
+        indice_contato = input ("Digite o número do contato que deseja renomear:")
+    
+        novo_nome_contato = input("Digite o novo nome do contato: ")
+        renomear_contato (lista_contatos, indice_contato, novo_nome_contato)
+        
+        
+        
+        
+        
+        
+        
         
         
     elif (escolha == "7"):
