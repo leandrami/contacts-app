@@ -30,6 +30,19 @@ def renomear_contato (lista_contatos, indice_contato, novo_nome_contato):
 
 
 
+def favoritar_contato (lista_contatos, indice_contato):
+    indice_contato_ajustado = int(indice_contato) - 1
+    if indice_contato_ajustado >=0 and indice_contato_ajustado < len(lista_contatos):
+        lista_contatos [indice_contato_ajustado] ["favorito"] = True
+        print (f"Contato {indice_contato} marcado com favorito!")
+    else :
+        print ("Indice do contato inválido.")
+    return
+
+
+
+
+
 
 
 
@@ -53,7 +66,7 @@ while True:
         nome = input ("Digite o nome do contato: ")
         telefone = input ("Digite o telefone: ")
         email = input ("Digite o e-mail: ")
-        adicionar_contato (lista_contatos , nome, telefone, email)    
+        adicionar_contato (lista_contatos , nome, telefone, email) 
         
     elif (escolha == "2") :
         listar_contatos(lista_contatos)
@@ -66,7 +79,10 @@ while True:
         renomear_contato (lista_contatos, indice_contato, novo_nome_contato)
         
         
-        
+    elif (escolha == "4") :
+        listar_contatos (lista_contatos)
+        indice_contato = input ("Digite o número do contato que deseja favoritar: ")
+        favoritar_contato (lista_contatos, indice_contato)
         
         
         
