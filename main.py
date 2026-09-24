@@ -50,8 +50,8 @@ def listar_favoritos(lista_contatos):
 def deletar_contato(lista_contatos,indice_contato):
     indice_contato_ajustado = int(indice_contato) - 1
     if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
-    lista_contatos.pop(indice_contato_ajustado)
-    print (f"Contato N° {indice_contato} deletado com sucesso!")
+        lista_contatos.pop(indice_contato_ajustado)
+        print (f"Contato N° {indice_contato} deletado com sucesso!")
     return
 
 
