@@ -47,7 +47,11 @@ def listar_favoritos(lista_contatos):
             print(f"{indice}. - [{status}] {contato['nome']} - {contato['telefone']}")
     return
 
-
+def deletar_contato(lista_contatos,indice_contato):
+    indice_contato_ajustado = int(indice_contato) - 1
+    lista_contatos.pop(indice_contato_ajustado)
+    print (f"Contato N° {indice_contato} deletado com sucesso!")
+    return
 
 
 
@@ -90,7 +94,9 @@ while True:
     elif (escolha == "5"):
         listar_favoritos(lista_contatos)    
         
-        
+    elif (escolha == "6"):
+        listar_contatos (lista_contatos)
+        indice_contato = input ("Digite o número do contato que deseja excluir: ")
         
         
     elif (escolha == "7"):
