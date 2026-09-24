@@ -21,7 +21,7 @@ def listar_contatos (lista_contatos):
 def renomear_contato (lista_contatos, indice_contato, novo_nome_contato):
     indice_contato_ajustado = int(indice_contato) - 1
     if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos): 
-        lista_contatos[indice_contato_ajustado]['nome'] = novo_nome_contato
+        lista_contatos[indice_contato_ajustado]['nome'] = novo_nome_contato   #lista[indice][chave] -> acessa elemento específico dentro do dicionário e atualiza o nome
         print (f"O Contato {indice_contato} foi renomeado para o {novo_nome_contato} ")
         
     else :
@@ -33,16 +33,19 @@ def renomear_contato (lista_contatos, indice_contato, novo_nome_contato):
 def favoritar_contato (lista_contatos, indice_contato):
     indice_contato_ajustado = int(indice_contato) - 1
     if indice_contato_ajustado >=0 and indice_contato_ajustado < len(lista_contatos):
-        lista_contatos [indice_contato_ajustado] ["favorito"] = True
+        lista_contatos [indice_contato_ajustado] ["favorito"] = True  #lista[indice][chave] -> acessa elemento específico dentro do dicionário e atualiza a chave 'favorito'
         print (f"Contato {indice_contato} marcado com favorito!")
     else :
         print ("Indice do contato inválido.")
     return
 
-
-
-
-
+def listar_favoritos(lista_contatos): 
+    print("\nContatos favoritos:")
+    for indice, contato in enumerate(lista_contatos, start=1):
+        if contato["favorito"]:
+            status = "★"
+            print(f"{indice}. - [{status}] {contato['nome']} - {contato['telefone']}")
+    return
 
 
 
@@ -84,7 +87,8 @@ while True:
         indice_contato = input ("Digite o número do contato que deseja favoritar: ")
         favoritar_contato (lista_contatos, indice_contato)
         
-        
+    elif (escolha == "5"):
+        listar_favoritos(lista_contatos)    
         
         
         
