@@ -49,8 +49,9 @@ def listar_favoritos(lista_contatos):
 
 def deletar_contato(lista_contatos,indice_contato):
     indice_contato_ajustado = int(indice_contato) - 1
-    lista_contatos.pop(indice_contato_ajustado)
-    print (f"Contato N° {indice_contato} deletado com sucesso!")
+    if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(lista_contatos):
+        lista_contatos.pop(indice_contato_ajustado)
+        print (f"Contato N° {indice_contato} deletado com sucesso!")
     return
 
 
@@ -68,12 +69,29 @@ while True:
     print ("7 - Sair")
     
     escolha = input("Digite a opção desejada: ")
+    if escolha not in ["1", "2", "3", "4", "5", "6", "7"]:
+        print("Opção inválida.")
+        continue
 
     if (escolha == "1") :
         nome = input ("Digite o nome do contato: ")
+        if not nome.strip():
+            print("O nome não pode ficar vazio.")
+            continue
+        
         telefone = input ("Digite o telefone: ")
+        if not telefone.strip():
+            print("O telefone não pode ficar vazio.")
+            continue
+        
         email = input ("Digite o e-mail: ")
+        if not email.strip():
+            print("O email não pode ficar vazio.")
+            continue
+        
         adicionar_contato (lista_contatos , nome, telefone, email) 
+        
+        
         
     elif (escolha == "2") :
         listar_contatos(lista_contatos)
@@ -97,6 +115,7 @@ while True:
     elif (escolha == "6"):
         listar_contatos (lista_contatos)
         indice_contato = input ("Digite o número do contato que deseja excluir: ")
+        deletar_contato(lista_contatos, indice_contato)
         
         
     elif (escolha == "7"):
